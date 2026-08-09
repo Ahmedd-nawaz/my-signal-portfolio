@@ -242,7 +242,7 @@ export default function ContactModal() {
 
                 <form
                     onSubmit={handleSubmit}
-                    className="w-full max-w-sm flex flex-col gap-sm rounded-lg border border-dark-border bg-dark-surface p-md"
+                    className="w-full flex flex-col gap-sm rounded-lg border border-dark-border bg-dark-surface p-md"
                 >
                     <div className="flex flex-col gap-0.5">
                         <label htmlFor="name" className="font-mono text-xs text-dark-text-muted">Name</label>
