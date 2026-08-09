@@ -242,7 +242,7 @@ export default function ContactModal() {
 
                 <form
                     onSubmit={handleSubmit}
-                    className="w-full flex flex-col gap-sm rounded-lg border border-dark-border bg-dark-surface p-md"
+                    className="w-full max-w-1/3 flex flex-col gap-sm rounded-lg border border-dark-border bg-dark-surface p-md"
                 >
                     <div className="flex flex-col gap-0.5">
                         <label htmlFor="name" className="font-mono text-xs text-dark-text-muted">Name</label>
@@ -251,7 +251,7 @@ export default function ContactModal() {
                             required
                             value={form.name}
                             onChange={(e) => setForm({ ...form, name: e.target.value })}
-                            className="rounded-md border border-dark-border bg-dark-bg px-sm py-1.5 text-small text-dark-text outline-none focus:border-amber"
+                            className="rounded-md border border-dark-border bg-dark-bg px-sm py-2.5 text-small text-dark-text outline-none focus:border-amber"
                         />
                     </div>
 
@@ -263,7 +263,7 @@ export default function ContactModal() {
                             required
                             value={form.email}
                             onChange={(e) => setForm({ ...form, email: e.target.value })}
-                            className="rounded-md border border-dark-border bg-dark-bg px-sm py-1.5 text-small text-dark-text outline-none focus:border-amber"
+                            className="rounded-md border border-dark-border bg-dark-bg px-sm py-2.5 text-small text-dark-text outline-none focus:border-amber"
                         />
                     </div>
 
