@@ -5,6 +5,7 @@ import Nav from "@/components/Nav";
 import { ContactModalProvider } from "@/components/ContactModalProvider";
 import ContactModal from "@/components/ContactModal";
 import Footer from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/next"
 
 const inter = Inter({
   variable: "--font-inter",
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Footer />
           <ContactModal />
         </ContactModalProvider>
+        <Analytics/>
       </body>
     </html>
   );
