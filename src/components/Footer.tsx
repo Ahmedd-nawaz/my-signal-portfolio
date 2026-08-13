@@ -7,13 +7,15 @@ export default function Footer() {
         <span>© 2026 Ahmed Nawaz. All rights reserved.</span>
         <div className="flex items-center gap-lg">
           {socialLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="hover:text-dark-text transition-colors"
-            >
-              {link.label}
-            </a>
+          <a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-amber transition-colors"
+                  >
+                    {link.label}
+                  </a>
           ))}
         </div>
       </div>

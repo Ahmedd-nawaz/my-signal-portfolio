@@ -3,19 +3,23 @@
 import { motion } from "framer-motion";
 import ContactTrigger from "@/components/ContactTrigger";
 import { DURATION_FAST, EASE_STANDARD } from "@/lib/motion";
+import { useActiveSection } from "@/lib/hooks";
 
 const underline = {
   rest: { scaleX: 0 },
   hover: { scaleX: 1 },
 };
+const SECTION_IDS = ["work", "experiments", "signal", "about"];
 
-function NavLink({ href, children }: { href: string; children: string }) {
+function NavLink({ href, isActive, children }: { href: string; isActive: boolean; children: string }) {
   return (
     <motion.a
       href={href}
       initial="rest"
+      animate={isActive ? "hover" : "rest"}
       whileHover="hover"
-      className="relative text-dark-text-muted hover:text-dark-text transition-colors"
+      className={`relative transition-colors ${isActive ? "text-dark-text" : "text-dark-text-muted hover:text-dark-text"
+        }`}
     >
       {children}
       <motion.span
@@ -28,6 +32,7 @@ function NavLink({ href, children }: { href: string; children: string }) {
 }
 
 export default function Nav() {
+  const activeId = useActiveSection(SECTION_IDS);
   return (
     <nav className="fixed top-0 inset-x-0 z-50 h-16 bg-dark-surface/80 border-b border-dark-border backdrop-blur-sm">
       <div className="container-app h-full flex items-center justify-between">
@@ -36,10 +41,10 @@ export default function Nav() {
         </a>
 
         <div className="hidden md:flex items-center gap-lg font-mono text-mono-label uppercase tracking-wide">
-          <NavLink href="/#work">Work</NavLink>
-          <NavLink href="/#experiments">Experiments</NavLink>
-          <NavLink href="/#signal">Signal</NavLink>
-          <NavLink href="/#about">About</NavLink>
+          <NavLink href="/#work" isActive={activeId === "work"}>Work</NavLink>
+          <NavLink href="/#experiments" isActive={activeId === "experiments"}>Experiments</NavLink>
+          <NavLink href="/#signal" isActive={activeId === "signal"}>Signal</NavLink>
+          <NavLink href="/#about" isActive={activeId === "about"}>About</NavLink>
         </div>
 
         <ContactTrigger

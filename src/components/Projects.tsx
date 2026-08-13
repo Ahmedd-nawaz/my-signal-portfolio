@@ -6,19 +6,20 @@ import { motion } from "framer-motion";
 import { projects } from "@/lib/projects";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 import { DURATION_FAST, EASE_STANDARD } from "@/lib/motion";
+import FadeIn from "@/components/motion/FadeIn";
 
 const MotionLink = motion.create(Link);
 
 export default function Projects() {
   return (
     <section id="work" className="bg-dark-surface py-4xl px-md">
-      <div className="container-app flex flex-col gap-2xl">
-        <div className="flex flex-col gap-sm">
+      <FadeIn className="container-app flex flex-col gap-2xl">
+        <FadeIn className="flex flex-col gap-sm">
           <h2 className="text-h2-mobile lg:text-h2 font-semibold text-dark-text">
             Selected Work
           </h2>
           <span className="block w-16 h-1 bg-amber rounded-full" />
-        </div>
+        </FadeIn>
 
         <StaggerGroup className="grid lg:grid-cols-2 gap-lg">
           {projects.map((project) => (
@@ -70,7 +71,7 @@ export default function Projects() {
             </StaggerItem>
           ))}
         </StaggerGroup>
-      </div>
+      </FadeIn>
     </section>
   );
 }
